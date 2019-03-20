@@ -4,12 +4,12 @@ import React from "react";
 import "./Todo.css";
 
 const TodoList = props => {
-  // console.log(props);
+  console.log(props);
   return (
     <div>
-      <h3>{props.todoListProp.task}</h3>
-      <p>{props.todoListProp.id}</p>
-      <p>{props.todoListProp.completed}</p>
+      <h3>{props.listProp.task}</h3>
+      <p>{props.listProp.id}</p>
+      <p>{props.listProp.completed}</p>
     </div>
   );
 };

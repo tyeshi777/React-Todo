@@ -35,6 +35,7 @@ class App extends React.Component {
     };
   }
   handleChanges = event => {
+    console.log("event", event.target);
     this.setState({
       [event.target.id]: event.target.value
     });
@@ -63,8 +64,8 @@ class App extends React.Component {
           handleChanges={this.handleChanges}
           updateList={this.updateList}
         />
-        {this.state.lists.map(task => (
-          <TodoList key={lists.id} todoListprop={task} />
+        {this.state.lists.map((task, index) => (
+          <TodoList key={index} listProp={task} />
         ))}
       </div>
     );
