@@ -5,9 +5,10 @@ const TodoForm = props => {
   return (
     <form>
       <input
+        name="task"
         className="input"
         type="text"
-        value={props.id}
+        value={props.inputText}
         placeholder="...Todo"
         onChange={props.handleChanges}
       />

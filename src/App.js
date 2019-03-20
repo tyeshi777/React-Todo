@@ -31,13 +31,14 @@ class App extends React.Component {
       lists: listTodo,
       task: "",
       id: "",
-      completed: false
+      completed: false,
+      inputText: ""
     };
   }
   handleChanges = event => {
     console.log("event", event.target);
     this.setState({
-      [event.target.id]: event.target.value
+      [event.target.name]: event.target.value
     });
   };
 
@@ -57,16 +58,17 @@ class App extends React.Component {
     return (
       <div>
         <Todo />
+        {this.state.lists.map((task, index) => (
+          <TodoList key={index} listProp={task} />
+        ))}
         <TodoForm
+          inputTask={this.state.inputText}
           task={this.state.task}
           id={this.state.id}
           completed={this.state.completed}
           handleChanges={this.handleChanges}
           updateList={this.updateList}
         />
-        {this.state.lists.map((task, index) => (
-          <TodoList key={index} listProp={task} />
-        ))}
       </div>
     );
   }
