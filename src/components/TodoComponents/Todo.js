@@ -4,7 +4,7 @@ import "./Todo.css";
 const Todo = props => {
   return (
     <div>
-      <h1>Todo List: MVP</h1>
+      <h2>Todo List: MVP</h2>
     </div>
   );
 };

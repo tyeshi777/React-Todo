@@ -8,14 +8,16 @@ const TodoForm = props => {
         name="task"
         className="input"
         type="text"
-        value={props.inputText}
+        value={props.task}
         placeholder="...Todo"
         onChange={props.handleChanges}
       />
-      <button className="btn" onClick={props.updateList}>
+      <button className="btn" onClick={props.addTodo}>
         Add Todo
       </button>
-      <button className="btn">Clear Completed</button>
+      <button className="btn" onClick={props.clearDone}>
+        Clear
+      </button>
     </form>
   );
 };
