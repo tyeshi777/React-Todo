@@ -5,18 +5,18 @@ import TodoList from "./components/TodoComponents/TodoList";
 
 const listTodo = [
   {
-    task: "buy some wanchain",
-    id: 123,
+    task: "learn react",
+    id: 100,
     completed: false
   },
   {
-    task: "buy some icon",
-    id: 124,
+    task: "start with props",
+    id: 101,
     completed: false
   },
   {
-    task: "buy some walton",
-    id: 125,
+    task: "start with state",
+    id: 102,
     completed: false
   }
 ];
@@ -31,43 +31,78 @@ class App extends React.Component {
       lists: listTodo,
       task: "",
       id: "",
-      completed: false,
-      inputText: ""
+      completed: false
     };
   }
   handleChanges = event => {
-    console.log("event", event.target);
+    // console.log("event", event.target);
     this.setState({
       [event.target.name]: event.target.value
     });
   };
 
-  updateList = event => {
+  addTodo = event => {
     event.preventDefault();
     const newList = {
       task: this.state.task,
-      id: this.state.id,
+      id: Date.now(),
       completed: false
     };
     this.setState({
-      lists: [...this.state.lists, newList]
+      lists: [...this.state.lists, newList],
+      task: ""
     });
   };
 
+  toggleItem = id => {
+    // console.log("toggle");
+    this.setState({
+      lists: this.state.lists.map(item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        }
+        return item;
+      })
+    });
+  };
+  clearDone = event => {
+    // console.log("clearDone");
+    event.preventDefault();
+    const doneList = {
+      task: this.state.task,
+      id: Date.now(),
+      completed: false
+    };
+    doneList.filter(item => {
+      if (item.completed === true) {
+        return {
+          task: ""
+        };
+      }
+    });
+  };
   render() {
     return (
       <div>
         <Todo />
         {this.state.lists.map((task, index) => (
-          <TodoList key={index} listProp={task} />
+          <TodoList
+            id={task.id}
+            key={index}
+            listProp={task}
+            toggleItem={this.toggleItem}
+          />
         ))}
         <TodoForm
-          inputTask={this.state.inputText}
           task={this.state.task}
           id={this.state.id}
           completed={this.state.completed}
           handleChanges={this.handleChanges}
-          updateList={this.updateList}
+          addTodo={this.addTodo}
+          clearDone={this.clearDone}
         />
       </div>
     );

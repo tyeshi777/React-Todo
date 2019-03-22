@@ -1,9 +1,28 @@
+#root {
+  width: 600px;
+  width: 100%;
+  background: yellow;
+  text-align: center;
+}
 .input {
-  max-width: 300px;
-  height: auto;
+  width: 300px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 10px;
+  background: purple;
+  color: white;
+  text-align: center;
 }
 
 .btn {
-  max-width: 200px;
-  height: auto;
+  width: 300px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 10px;
+  background: purple;
+  color: white;
+  display: block;
+}
+.listProp .completed {
+  text-decoration: line-through;
 }
