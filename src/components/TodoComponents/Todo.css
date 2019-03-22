@@ -1,32 +1,28 @@
 #root {
-  max-width: 600px;
+  width: 600px;
   width: 100%;
   background: yellow;
+  text-align: center;
 }
-
 .input {
-  max-width: 300px;
+  width: 300px;
   height: 30px;
   font-size: 20px;
   border-radius: 10px;
   background: purple;
   color: white;
+  text-align: center;
 }
 
 .btn {
-  max-width: 100px;
+  width: 300px;
   height: 30px;
   font-size: 20px;
   border-radius: 10px;
   background: purple;
   color: white;
+  display: block;
 }
-.div {
-  background: red;
-  max-width: 140px;
-  border-radius: 10px;
-  color: white;
-}
-.div p {
-  padding-left: 10px;
+.listProp .completed {
+  text-decoration: line-through;
 }

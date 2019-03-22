@@ -55,7 +55,7 @@ class App extends React.Component {
   };
 
   toggleItem = id => {
-    console.log(id);
+    // console.log("toggle");
     this.setState({
       lists: this.state.lists.map(item => {
         if (item.id === id) {
@@ -69,16 +69,25 @@ class App extends React.Component {
     });
   };
   clearDone = event => {
-    // console.log("cleardone");
-    // event.preventDefault();
-    // this.setState({
-    //   lists: this.state.lists.map(item => item + "hello")
-    // });
+    // console.log("clearDone");
+    event.preventDefault();
+    const doneList = {
+      task: this.state.task,
+      id: Date.now(),
+      completed: false
+    };
+    doneList.filter(item => {
+      if (item.completed === true) {
+        return {
+          task: ""
+        };
+      }
+    });
   };
   render() {
     return (
       <div>
-        <Todo toggleItem={this.toggleItem} />
+        <Todo />
         {this.state.lists.map((task, index) => (
           <TodoList
             id={task.id}

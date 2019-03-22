@@ -4,9 +4,12 @@ import React from "react";
 import "./Todo.css";
 
 const TodoList = props => {
-  // console.log(props);
+  console.log(props);
   return (
-    <div className="div" onClick={() => props.toggleItem(props.id)}>
+    <div
+      className={`listProp${props.id.completed ? " completed" : ""}`}
+      onClick={() => props.toggleItem(props.id)}
+    >
       <p>{props.listProp.task}</p>
     </div>
   );
